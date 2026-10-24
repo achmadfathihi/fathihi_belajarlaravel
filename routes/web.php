@@ -36,10 +36,22 @@ Route::get('/about', function () {
 Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 Route::get('/matakuliah/show/{param?}', [MatakuliahController::class, 'show']);
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])
+    ->name('home');
 
-Route::post('question/store', [QuestionController::class, 'store'])
+Route::post('question', [QuestionController::class, 'store'])
     ->name('question.store');
 
 Route::get('dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+
+Route::get('/kembali-beranda', function () {
+    $nama = session('nama');
+    $pertanyaan = session('pertanyaan');
+    $email = session('email');
+
+    return redirect()->route('home')->with(
+        'info',
+        "Terima kasih {$nama}! Pertanyaan ini: {$pertanyaan} akan segera direspons melalui email {$email}."
+    );
+})->name('kembali-beranda');
