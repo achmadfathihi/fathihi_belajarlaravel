@@ -6,6 +6,7 @@ use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Pelanggann;
 
 Route::get('/', function () {
     return view('welcome');
@@ -55,3 +56,5 @@ Route::get('/kembali-beranda', function () {
         "Terima kasih {$nama}! Pertanyaan ini: {$pertanyaan} akan segera direspons melalui email {$email}."
     );
 })->name('kembali-beranda');
+
+Route::resource('pelanggan', Pelanggann::class);
