@@ -351,6 +351,11 @@
                 <div class="mb-3 mb-lg-0">
                     <h1 class="h4">Data Pelanggan</h1>
                     <p class="mb-0">List data seluruh pelanggan</p>
+                    @if (session('success'))
+                            <div class="alert alert-success">
+                                {!! session('success') !!}
+                            </div>
+                    @endif
                 </div>
                 <div>
                     <a href="{{ route('pelanggan.create') }}" class="btn btn-success text-white"><i
