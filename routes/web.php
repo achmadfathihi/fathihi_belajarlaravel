@@ -6,7 +6,7 @@ use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Pelanggann;
+use App\Http\Controllers\PelangganController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,4 +57,4 @@ Route::get('/kembali-beranda', function () {
     );
 })->name('kembali-beranda');
 
-Route::resource('pelanggan', Pelanggann::class);
+Route::resource('pelanggan', PelangganController::class);
